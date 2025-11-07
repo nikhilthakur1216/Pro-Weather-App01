@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Pro Weather</title>
+  <link rel="stylesheet" href="style.css"/>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+</head>
+<body>
+  <!-- Animated Background -->
+  <div class="bg" id="bg">
+    <div class="clouds"></div>
+    <div class="stars"></div>
+  </div>
+  <div class="sun" id="sun"></div>
+  <div class="moon" id="moon"></div>
+
+  <header class="topbar">
+    <h1>🌦️ Vro Weather</h1>
+    <div class="controls">
+      <button id="locBtn" class="btn small">📍 My location</button>
+      <div class="theme-toggle">
+        <input type="checkbox" id="themeSwitch"/>
+        <label for="themeSwitch" title="Light/Dark">🌞/🌙</label>
+      </div>
+    </div>
+  </header>
+
+  <main class="container">
+    <section class="search-row">
+      <input id="cityInput" type="text" placeholder="Search city e.g. Mumbai, Kharar" list="historyList"/>
+      <datalist id="historyList"></datalist>
+      <button id="searchBtn" class="btn">Search</button>
+    </section>
+
+    <section class="now-card glass">
+      <div class="now-left">
+        <div class="place-row">
+          <h2 id="cityName">—</h2>
+          <span id="dateTime" class="muted">—</span>
+        </div>
+        <div class="temp-row">
+          <img id="nowIcon" alt="icon" />
+          <div>
+            <div class="temp" id="nowTemp">—°</div>
+            <div class="desc" id="nowDesc">—</div>
+          </div>
+        </div>
+      </div>
+      <div class="now-right">
+        <ul class="stats">
+          <li>Feels like: <b id="feelsLike">—°C</b></li>
+          <li>Precip: <b id="precip">—%</b></li>
+          <li>Humidity: <b id="humidity">—%</b></li>
+          <li>Wind: <b id="wind">— m/s</b></li>
+          <li>Pressure: <b id="pressure">— hPa</b></li>
+          <li>Sunrise: <b id="sunrise">—</b></li>
+          <li>Sunset: <b id="sunset">—</b></li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="aqi-card glass">
+      <h3>Air Quality</h3>
+      <div class="aqi-row">
+        <span id="aqiBadge" class="aqi aqi-0">—</span>
+        <div class="aqi-meta">
+          <div>Index: <b id="aqiIndex">—</b></div>
+          <small class="muted">1 Good • 2 Fair • 3 Moderate • 4 Poor • 5 Very Poor</small>
+        </div>
+      </div>
+    </section>
+
+    <section class="hourly glass">
+      <div class="section-title"><h3>Hourly (Next 12h)</h3></div>
+      <div id="hourlyWrap" class="hourly-scroll"></div>
+    </section>
+
+    <section class="daily glass">
+      <div class="section-title"><h3>5-Day Forecast</h3></div>
+      <div id="dailyWrap" class="daily-grid"></div>
+    </section>
+  </main>
+
+  <div id="loader" class="loader hidden">
+    <div class="spinner"></div>
+    <p>Fetching weather…</p>
+  </div>
+
+  <footer class="footer">
+    <small>Data: OpenWeather · Built by NIKHIL 💪</small>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
+
